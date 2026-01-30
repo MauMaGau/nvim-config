@@ -45,6 +45,10 @@ return {
         dotfiles = false,
         custom = { ".git", "node_modules", ".cache" },
       },
+      update_focused_file = {
+        enable = true,
+        update_cwd = true,
+      },
     })
   end,
 }

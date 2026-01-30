@@ -19,6 +19,11 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.wrap = true
+vim.opt.textwidth = 0
+vim.opt.wrapmargin = 10 -- Number of characters from right border before wrapping starts
 
 -- Leader key setup
 vim.g.mapleader = ","
@@ -26,6 +31,12 @@ vim.g.maplocalleader = "\\"
 
 -- Keymaps
 local keymap = vim.keymap
+
+-- Filetypes for syntax highlighting
+--vim.filetype.add({pattern = {[".*%.blade%.php"] = "html"}})
+
+-- QOL
+keymap.set('i', '<C-j>', '<esc>l', defaults)
 
 -- Better navigation
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate left" })
@@ -41,11 +52,13 @@ keymap.set("n", "<leader>wc", "<C-w>c", { desc = "Close current window" })
 
 -- File explorer
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+vim.g.nvim_tree_respect_buf_cwd = 1
 
 -- Telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
 keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
+keymap.set("n", "<C-tab>", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 
 -- Git

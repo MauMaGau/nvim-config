@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.8",
+  version = "*",
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local telescope = require("telescope")
@@ -8,6 +8,8 @@ return {
 
     telescope.setup({
       defaults = {
+        no_ignore = true,
+        hidden = true,
         path_display = { "truncate" },
         mappings = {
           i = {
@@ -17,6 +19,10 @@ return {
           },
         },
       },
+      find_files = {
+        hidden = true,
+        no_ignore = true,
+      }
     })
   end,
 }
